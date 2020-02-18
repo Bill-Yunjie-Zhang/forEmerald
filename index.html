@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Input your name in the form of (EnglishName ChineseFamilyName: Bill Zhang)</p>
+
+    <input id="name" value="">
+
+    <button onclick="handleNameFunction()">Get statement</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function handleNameFunction() {
+            var name, voteable;
+            name = document.getElementById("name").value;
+            statement = (name === "Emerald Chen") ? "I love u!" : "Who are u?";
+            document.getElementById("demo").innerHTML = statement;
+        }
+    </script>
+</body>
+
+</html>
