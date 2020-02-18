@@ -5,22 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #inputBox {
+            border: 1px solid rgb(255, 51, 51);
+            width: 60%;
+            margin: auto;
+            margin-top: 100px;
+            padding: 5%;
+            text-align: center
+        }
+
+        #inputInner {
+            margin: 10%;
+        }
+
+        input {
+            height: 30px;
+        }
+        button {
+            height: 36px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Input your name in the form of (EnglishName ChineseFamilyName: Bill Zhang)</p>
+    <div id="inputBox">
+        <h1>Input your name</h1>
+        <p>(EnglishName ChineseFamilyName: Bill Zhang)</p>
 
-    <input id="name" value="">
+        <div id="inputInner">
+            <input id="name" value="">
+            <button onclick="handleNameFunction()">Get statement</button>
+        </div>
 
-    <button onclick="handleNameFunction()">Get statement</button>
-
-    <p id="demo"></p>
+        <h1 id="demo"></h1>
+    </div>
 
     <script>
         function handleNameFunction() {
             var name, voteable;
             name = document.getElementById("name").value;
-            statement = (name === "Emerald Chen") ? "I love u!" : "Who are u?";
+            statement = (name === "Emerald Chen") ? "I love u!" : "Who?";
             document.getElementById("demo").innerHTML = statement;
         }
     </script>
