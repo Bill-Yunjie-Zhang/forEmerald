@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0
+        }
+
+        #piece {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            transition: 0.5;
+            transform: skewX(0deg);
+            transform: skewY(0deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id = "piece" onmousemove="myFunction(event)" onmouseout="clearCoor()"></div>
+
+    <script>
+        function myFunction(e) {
+            var x = e.clientX - 100;
+            var y = e.clientY - 100;
+            console.log(x, y)
+            if(x > 0){
+                document.getElementById("piece").style.transform = "skewX(" + y + "deg)"
+            } else {
+                document.getElementById("piece").style.transform = "skewX(" + y + "deg)"
+            }
+            if(y > 0){
+                document.getElementById("piece").style.transform = "skewY(" + x  + "deg)"
+            }else{
+                document.getElementById("piece").style.transform = "skewY(" + x  + "deg)"
+            }
+        }
+
+        function clearCoor() {
+            document.getElementById("piece").style.transform = "skewX(0deg)"
+            document.getElementById("piece").style.transform = "skewY(0deg)"        }
+    </script>
+
+</body>
+
+</html>

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who are u?</title>
     <style>
+        button {
+            cursor: pointer;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -18,11 +22,14 @@
             margin: 0;
         }
 
+        #inputBoxWrapper {
+            padding: 10%
+        }
+
         #inputBox {
             border: 1px solid rgb(255, 51, 51);
             width: 60%;
             margin: auto;
-            margin-top: 100px;
             padding: 5%;
             text-align: center
         }
@@ -39,42 +46,247 @@
             height: 36px;
         }
 
-        #hidden {
-            margin-top: 20%;
-            height: 1000px;
-            background-color: rgb(255, 108, 108);
-            display: block
+        #contents {
+            display: none
+        }
+
+        #hidden0 {
+            height: 800px;
+            background-color: #ff6c6c;
         }
 
         #titles {
             text-align: center;
             padding: 3%
         }
+
+        #title3 {
+            margin-top: 5%;
+            font-size: 50px;
+        }
+
+        #circle0 {
+            background-color: #ffeeee;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            margin: auto;
+            border: none;
+            position: relative;
+            top: 0px;
+            transition: 0.5s;
+            display: none;
+        }
+
+        #triangle0 {
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-top: 30px solid #ffa0a0;
+            border-bottom: 0px solid transparent;
+            position: relative;
+            left: -1px;
+            top: 14px
+        }
+
+        #circle0:hover {
+            top: 10px
+        }
+
+        #hint {
+            position: relative;
+            top: -30px;
+            width: 200px;
+            left: 30px;
+            font-family: cursive
+        }
+
+        #hidden1 {
+            height: 800px;
+            background-color: #293351;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: none
+        }
+
+        #hidden1::-webkit-scrollbar {
+            display: none;
+        }
+
+        #poemSection {
+            width: 50%;
+            margin: auto;
+            color: #8989a2;
+        }
+
+        .heart {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 6.25px;
+            height: 9.5px;
+        }
+
+        .heart::before,
+        .heart::after {
+            position: absolute;
+            content: "";
+            left: 6.25px;
+            top: 0;
+            width: 6.25px;
+            height: 9.5px;
+            background: #ebe04f;
+            border-radius: 6.25px 6.25px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            transition: 0.5s
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart:hover::before,
+        .heart:hover::after {
+            position: absolute;
+            content: "";
+            left: 12.5px;
+            top: 0;
+            width: 12.5px;
+            height: 20px;
+            background: #ebe04f;
+            border-radius: 12.5px 12.5px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart:hover::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .trinkle {
+            -webkit-animation: flickerAnimation 5s infinite;
+            -moz-animation: flickerAnimation 5s infinite;
+            -o-animation: flickerAnimation 5s infinite;
+            animation: flickerAnimation 5s infinite;
+        }
     </style>
 </head>
 
 <body>
-    <div id="inputBox">
-        <h1>Input your name</h1>
-        <p>(EnglishName + ChineseFamilyName: Bill Zhang)</p>
+    <div id="inputBoxWrapper">
+        <div id="inputBox">
+            <h1>Input your name</h1>
+            <p>(EnglishName + FamilyName: Bill Zhang)</p>
 
-        <div id="inputInner">
-            <input id="name" value="">
-            <button id="formButton" onclick="handleNameFunction()">Get statement</button>
+            <div id="inputInner">
+                <input id="name" value="">
+                <button id="formButton" onclick=handleNameFunction()>Get statement</button>
+            </div>
+
+            <h1 id="demo"></h1>
         </div>
-
-        <h1 id="demo"></h1>
     </div>
 
-    <div id="hidden">
-        <div id="titles">
-            <h1 id="title0"></h1>
-            <h2 id="title1"></h2>
-            <h3 id="title2"></h3>
+    <div id="contents">
+        <div id="hidden0">
+            <div id="titles">
+                <h1 id="title0"></h1>
+                <h2 id="title1"></h2>
+                <h3 id="title2"></h3>
+                <h1 id="title3"></h1>
+                <!-- <h1 id="title0">Hi Emerald</h1>
+                <h2 id="title1">Nice seeing you here</h2>
+                <h3 id="title2">I created this little space here just for you and I</h3>
+                <h1 id="title3">Hope you would like it</h1> -->
+                <button id="circle0" onclick=goToHidden1Function()>
+                    <div id="triangle0"></div>
+                    <p id="hint"> ~ click to scroll down</p>
+                </button>
+            </div>
+        </div>
+        <div id="hidden1">
+            <div id="poemSection"></div>
+            <div id="starNight"></div>
         </div>
     </div>
 
     <script>
+        const makeStars = (num) => {
+            for (ll = 0; ll < num; ll++) {
+                document.getElementById("starNight").appendChild(document.createElement("div"))
+                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("id", "heart" + ll)
+                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("class", "heart trinkle")
+                console.log(Math.random())
+                let locationX = Math.random() * 1000
+                let locationY = Math.random() * 1500
+                let speed = (Math.random() + 0.2) * 10
+                document.getElementById("heart" + ll).style.top = locationX + "px"
+                document.getElementById("heart" + ll).style.left = locationY + "px"
+                document.getElementById("heart" + ll).style.animation = "flickerAnimation " + speed + "s infinite"      
+            }
+        }
+
         const handleNameFunction = () => {
             let name = ""
             let statement = ""
@@ -85,19 +297,24 @@
                 setTimeout(function () {
                     let r = confirm("Scroll down to start please")
                     if (r) {
-                        document.getElementById("hidden").style.display = "block"
-                        document.getElementById('hidden').scrollIntoView();
+                        document.getElementById("contents").style.display = "block"
+                        document.getElementById('hidden0').scrollIntoView()
                         typeWriter("Hi Emerald", "title0", 100)
                         setTimeout(function () {
+                            document.getElementById("inputBoxWrapper").style.display = "none"
                             typeWriter("Nice seeing you here", "title1", 50)
                             setTimeout(function () {
-                                typeWriter("I created this little space here just for you and I", "title2", 50)
+                                typeWriter("I created this little space here just for you and I", "title2", 30)
+                                setTimeout(function () {
+                                    typeWriter("Hope you would like it", "title3", 100)
+                                    setTimeout(function () {
+                                        document.getElementById("circle0").style.display = "block"
+                                    }, 3500)
+                                }, 2000)
                             }, 1000)
                         }, 1000)
                     }
                 }, 1000)
-            } else {
-                document.getElementById("hidden").style.display = "none"
             }
         }
 
@@ -110,6 +327,33 @@
                 }
             }, speed);
         }
+
+        const goToHidden1Function = () => {
+            document.getElementById("hidden1").style.display = "block"
+            document.getElementById('hidden1').scrollIntoView()
+            let numOfStars = 99
+            makeStars(numOfStars)
+            setTimeout(function () {
+                document.getElementById("hidden0").style.display = "none"
+                let poem0 = "Endless nights looking up at the countless stars of the nights \n May the streams of thy shine upon us through the silky clouds \n Everlasting thee stay there with the moon shining bright \n Roses here around us glimmer beyond all the fields and grounds \n . . . \n Arise its flagrant should flow to the far side of the heaven \n Lovely aren’t they in these early days of a romantic year \n Destiny trimmers on the horizon by the fear of being revealed \n In our hearts we both know we got nothing to fear \n . . . \n Solid oaths of forever are not the treasure we are seeking \n I simply know that I will love you more with each passing day \n Like the golden arrows with Cupid’s holly blessing \n Once gone off the string, only the himself is they to stay \n . . . \n Vested with all the love the world could give \n Emerald is the girl with me on this Valentine’s Day"
+                let poem0Array = poem0.split("\n")
+                console.log(poem0Array)
+                let line = poem0Array.length
+                setLines("poemSection", "h3", "poem0Line", "poem0", line)
+                for (jj = 0; jj < line; jj++) {
+                    typeWriter(poem0Array[jj], "poem0Line" + jj, 100)
+                }
+            }, 1000)
+        }
+
+        const setLines = (whereID, addWhatTag, addWhatId, addWhatClass, howMany) => {
+            for (ii = 0; ii < howMany; ii++) {
+                document.getElementById(whereID).appendChild(document.createElement(addWhatTag))
+                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("id", addWhatId + ii)
+                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("class", addWhatClass)
+            }
+        }
+
     </script>
 </body>
 
