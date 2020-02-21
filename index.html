@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Who are u?</title>
+    <title>Our Story</title>
     <style>
         button {
             cursor: pointer;
@@ -101,9 +101,10 @@
         }
 
         #hidden1 {
-            height: 800px;
+            height: 1000px;
+            width: 100%;
             background-color: #293351;
-            padding: 40px;
+            padding-top: 40px;
             position: relative;
             overflow: hidden;
             display: none
@@ -230,10 +231,207 @@
             -o-animation: flickerAnimation 5s infinite;
             animation: flickerAnimation 5s infinite;
         }
+
+        #display0 {
+            z-index: 1;
+            position: absolute;
+            bottom: 0px;
+            height: 7%;
+            width: 100%;
+            background-color: #ffd9d9;
+            transition: 1s;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #display0:hover {
+            height: 60%;
+        }
+
+        #display1 {
+            z-index: 1;
+            position: absolute;
+            bottom: 0px;
+            height: 6%;
+            width: 100%;
+            background-color: #b3b3b3;
+            transition: 1s;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #display1:hover {
+            height: 92%;
+        }
+
+        #display2 {
+            z-index: 1;
+            position: absolute;
+            bottom: 0px;
+            height: 5%;
+            width: 100%;
+            background-color: #ff92ac;
+            transition: 1s;
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        #display2:hover {
+            height: 90%;
+        }
+
+        .menu {
+            padding-bottom: 15px;
+            border-bottom: 0.5px dashed #ffffff;
+        }
+
+        .menuStyle {
+            position: relative;
+            margin: auto;
+            top: 10px;
+            margin-bottom: 6px;
+            width: 8%;
+            height: 14px;
+            border-radius: 7px;
+            background-color: #293351;
+        }
+
+        .menuStyleColor1 {
+            background-color: #ffd9d9;
+        }
+
+        .menuStyleColor2 {
+            background-color: #b3b3b3;
+        }
+
+        #left {
+            width: 40%;
+            float: left;
+        }
+
+        #timeTogether {
+            text-align: center;
+        }
+
+        #clock {
+            width: 350px;
+            margin: auto;
+        }
+
+        #secondsTogether {
+            position: fixed;
+            bottom: 3%;
+            right: 3%;
+            color: red;
+            z-index: 99;
+            opacity: 0;
+            direction: rtl;
+            filter: blur(0px);
+            animation: blur-text 4s 0s infinite linear alternate;
+        }
+
+        @keyframes blur-text {
+            0% {
+                filter: blur(0px);
+                opacity: 0.9;
+            }
+
+            100% {
+                filter: blur(4px);
+                opacity: 0.2;
+            }
+        }
+
+        #rightTitle {
+            font-family: cursive;
+            position: relative;
+            color: transparent;
+        }
+
+        #rightText0 {
+            font-family: cursive;
+            position: relative;
+            color: transparent;
+        }
+
+        #rightText1 {
+            font-family: cursive;
+            position: relative;
+            color: transparent;
+        }
+
+        #rightText2 {
+            font-family: cursive;
+            position: relative;
+            color: transparent;
+        }
+
+        #rightText3 {
+            font-family: cursive;
+            position: relative;
+            right: 20px;
+            color: transparent;
+            direction: rtl;
+        }
+
+        .rightTitle::before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 7em;
+            white-space: nowrap;
+            color: #fff;
+            animation: writing 2s linear;
+        }
+
+        .rightText0::before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 45%;
+            white-space: nowrap;
+            color: #fff;
+            animation: writing 5s linear;
+        }
+
+        .rightText1::before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 51%;
+            white-space: nowrap;
+            color: #fff;
+            animation: writing 5s linear;
+        }
+
+        .rightText2::before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 51%;
+            white-space: nowrap;
+            color: #fff;
+            animation: writing 4s linear;
+        }
+
+        .rightText3::before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 51%;
+            white-space: nowrap;
+            color: #fff;
+            animation: writing 4s linear;
+        }
+
+        @keyframes writing {
+            0% {
+                max-width: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <h3 id="secondsTogether"></h3>
+
     <div id="inputBoxWrapper">
         <div id="inputBox">
             <h1>Input your name</h1>
@@ -241,7 +439,7 @@
 
             <div id="inputInner">
                 <input id="name" value="">
-                <button id="formButton" onclick=handleNameFunction()>Get statement</button>
+                <button id="formButton" onclick=handleNameFunction()>Start</button>
             </div>
 
             <h1 id="demo"></h1>
@@ -268,6 +466,45 @@
         <div id="hidden1">
             <div id="poemSection"></div>
             <div id="starNight"></div>
+            <div id="display0">
+                <div class="menu">
+                    <div class="menuStyle"></div>
+                    <div class="menuStyle"></div>
+                    <div class="menuStyle"></div>
+                </div>
+                <div id="display1">
+                    <div class="menu">
+                        <div class="menuStyle menuStyleColor1"></div>
+                        <div class="menuStyle menuStyleColor1"></div>
+                        <div class="menuStyle menuStyleColor1"></div>
+                    </div>
+                    <div id="display2" onmouseover="mouseOverDisplay2()" onmouseout="clearDisplay2()">
+                        <div class="menu">
+                            <div class="menuStyle menuStyleColor2"></div>
+                            <div class="menuStyle menuStyleColor2"></div>
+                            <div class="menuStyle menuStyleColor2"></div>
+                        </div>
+                        <div id="left">
+                            <div id="clock">
+                                <canvas id="canvas" width="350" height="350"
+                                    style="background-color: transparent"></canvas>
+                            </div>
+                            <p id="timeTogether"></p>
+                        </div>
+                        <div id="right">
+                            <h1 id="rightTitle" data-text="Dear Emerald">Dear Emerald</h1>
+                            <h3 id="rightText0" data-text="2020 is indeed a romantic year.">2020 is indeed a romantic
+                                year.</h3>
+                            <h3 id="rightText1"
+                                data-text="Starting from 10 past midnight, Feburary 8th 2020, begins our story.">
+                                Starting from 10 past midnight, Feburary 8th 2020, begins our story.</h3>
+                            <h3 id="rightText2" data-text="And I shall start recording our story here and in my heart.">
+                                And I shall start recording our story here and in my heart.</h3>
+                            <h1 id="rightText3" data-text=" ~ From Bill ~ "> ~ From Bill ~ </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -277,13 +514,13 @@
                 document.getElementById("starNight").appendChild(document.createElement("div"))
                 document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("id", "heart" + ll)
                 document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("class", "heart trinkle")
-                console.log(Math.random())
+                // console.log(Math.random())
                 let locationX = Math.random() * 1000
                 let locationY = Math.random() * 1500
                 let speed = (Math.random() + 0.2) * 10
                 document.getElementById("heart" + ll).style.top = locationX + "px"
                 document.getElementById("heart" + ll).style.left = locationY + "px"
-                document.getElementById("heart" + ll).style.animation = "flickerAnimation " + speed + "s infinite"      
+                document.getElementById("heart" + ll).style.animation = "flickerAnimation " + speed + "s infinite"
             }
         }
 
@@ -304,7 +541,7 @@
                             document.getElementById("inputBoxWrapper").style.display = "none"
                             typeWriter("Nice seeing you here", "title1", 50)
                             setTimeout(function () {
-                                typeWriter("I created this little space here just for you and I", "title2", 30)
+                                typeWriter("I created this little space here just for you", "title2", 30)
                                 setTimeout(function () {
                                     typeWriter("Hope you would like it", "title3", 100)
                                     setTimeout(function () {
@@ -354,6 +591,117 @@
             }
         }
 
+        const clearCanvas = () => {
+            drawing.save()
+            drawing.setTransform(1, 0, 0, 1, 0, 0)
+            drawing.clearRect(0, 0, canvas.width, canvas.height)
+            drawing.restore()
+        }
+
+        const drawNumbers = (drawing, radius) => {
+            let angle = 0
+            let num = 0
+            drawing.font = radius * 0.15 + "px arial"
+            drawing.textBaseline = "middle"
+            drawing.textAlign = "center"
+            for (num = 1; num < 13; num++) {
+                angle = num * Math.PI / 6
+                drawing.rotate(angle)
+                drawing.translate(0, -radius * 0.85)
+                drawing.rotate(-angle)
+                drawing.fillText(num.toString(), 0, 0)
+                drawing.rotate(angle)
+                drawing.translate(0, radius * 0.85)
+                drawing.rotate(-angle)
+            }
+        }
+
+        const drawHand = (drawing, pos, length, width) => {
+            drawing.beginPath()
+            drawing.lineWidth = width
+            drawing.lineCap = "round"
+            drawing.moveTo(0, 0)
+            drawing.rotate(pos)
+            drawing.lineTo(0, -length)
+            drawing.stroke()
+            drawing.rotate(-pos)
+        }
+
+        const drawTime = (drawing, radius) => {
+            let time = new Date()
+            let hour = time.getHours() % 12
+            let minute = time.getMinutes()
+            let second = time.getSeconds()
+
+            hour = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60))
+            drawHand(drawing, hour, radius * 0.4, radius * 0.08)
+
+            minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60))
+            drawHand(drawing, minute, radius * 0.8, radius * 0.05)
+
+            second = (second * Math.PI / 30)
+            drawHand(drawing, second, radius * 0.9, radius * 0.02)
+        }
+
+        const drawEachClock = () => {
+            clearCanvas()
+            drawNumbers(drawing, radius);
+            drawTime(drawing, radius);
+        }
+
+        let canvas = document.getElementById("canvas")
+        let drawing = canvas.getContext("2d")
+        let radius = canvas.height / 2
+        drawing.translate(radius, radius)
+        radius = radius * 0.90
+        setInterval(drawEachClock, 1000)
+
+        const getTimeTogether = () => {
+            document.getElementById("timeTogether").innerHTML = ""
+            let date0 = new Date()
+            let hour0 = date0.getHours()
+            let minute0 = date0.getMinutes()
+            let second0 = date0.getSeconds()
+
+            const date1 = new Date("02/08/2020")
+            const hour1 = 0
+            const minute1 = 10
+            const second1 = 0
+
+            let days = Math.floor((date0.getTime() - date1.getTime()) / (1000 * 3600 * 24));
+            let totalSeconds = days * (24 * 60 * 60) + ((hour0 - hour1) * 60 * 60) + ((minute0 - minute1) * 60) + (second0 - second1)
+            document.getElementById("secondsTogether").innerHTML = totalSeconds
+
+            days = Math.floor(totalSeconds / (24 * 60 * 60))
+            totalSeconds -= days * (24 * 60 * 60)
+
+            hours = Math.floor(totalSeconds / (60 * 60))
+            totalSeconds -= hours * (60 * 60)
+
+            minutes = Math.floor(totalSeconds / 60)
+            totalSeconds -= minutes * 60
+
+            seconds = totalSeconds
+            document.getElementById("timeTogether").innerHTML = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds"
+        }
+
+        setInterval(getTimeTogether, 1000)
+
+        const mouseOverDisplay2 = () => {
+            document.getElementById("rightTitle").setAttribute("class", "rightTitle")
+            setTimeout(function () {
+                document.getElementById("rightText0").setAttribute("class", "rightText0")
+                setTimeout(function () {
+                    document.getElementById("rightText1").setAttribute("class", "rightText1")
+                    setTimeout(function () {
+                        document.getElementById("rightText2").setAttribute("class", "rightText2")
+                        setTimeout(function () {
+                            document.getElementById("rightText3").setAttribute("class", "rightText3")
+                        }, 4000)
+                    }, 5000)
+                }, 3000)
+            }, 2000)
+        }
     </script>
 </body>
 
