@@ -248,7 +248,7 @@
         }
 
         #display1 {
-            z-index: 1;
+            z-index: 99;
             position: absolute;
             bottom: 0px;
             height: 6%;
@@ -263,7 +263,7 @@
         }
 
         #display2 {
-            z-index: 1;
+            z-index: 999;
             position: absolute;
             bottom: 0px;
             height: 5%;
@@ -426,6 +426,186 @@
                 max-width: 0;
             }
         }
+
+        #forPainting {
+            height: 500px;
+            width: 500px;
+            background-color: transparent;
+            margin: auto;
+        }
+
+
+        #rose0 {
+            position: relative;
+            top: 50px;
+            left: -90px
+        }
+
+        #rose1 {
+            position: relative;
+            top: -180px;
+            left: -150px
+        }
+
+        #rose2 {
+            position: relative;
+            top: -490px;
+            left: 90px
+        }
+
+        #rose3 {
+            position: relative;
+            top: -725px;
+            left: 150px
+        }
+
+        #rose4 {
+            position: relative;
+            top: -990px;
+            left: -50px;
+
+        }
+
+        #rose5 {
+            position: relative;
+            top: -1260px;
+            left: 50px
+        }
+
+        #rose6 {
+            position: relative;
+            top: -1480px;
+            left: -80px
+        }
+
+        #rose7 {
+            position: relative;
+            top: -1750px;
+            left: 80px
+        }
+
+        #rose8 {
+            position: relative;
+            top: -1980px;
+            left: 0px
+        }
+
+        #body {
+            position: relative;
+            top: 20px;
+            left: 200px
+        }
+
+        #bodyLeft {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            height: 110px;
+            width: 50px;
+            background-color: #b33333;
+            border-radius: 0 0 0 100% / 0 0 0 70%;
+            z-index: 1;
+            background-image: linear-gradient(to left, #b33333, #8a2a2a);
+        }
+
+        #bodyRight {
+            position: relative;
+            top: -110px;
+            left: 50px;
+            height: 110px;
+            width: 50px;
+            background-color: #b33333;
+            border-radius: 0 0 100% 0 / 0 0 70% 0;
+            z-index: 1;
+            background-image: linear-gradient(to right, #b33333, #8a2a2a);
+        }
+
+        #bodyTop {
+            position: relative;
+            border: 1px solid #c94848;
+            top: 20px;
+            left: 0px;
+            height: 50px;
+            width: 98px;
+            background-color: #8a2a2a;
+            border-radius: 50% 50% 50% 50% / 50% 60% 40% 40%;
+            z-index: 2;
+        }
+
+        #layer1 {
+            position: relative;
+            border: 0.8px solid #c94848;
+            top: -2px;
+            left: 15px;
+            height: 53px;
+            width: 70px;
+            background-color: #892525;
+            border-radius: 50% 50% 50% 50% / 60% 60% 60% 40%;
+            z-index: 3;
+            transform: skewX(10deg)
+        }
+
+        #layer2 {
+            position: relative;
+            border: 0.6px solid #c94848;
+            top: 9px;
+            left: -1px;
+            height: 34px;
+            width: 70px;
+            background-color: #7f2020;
+            border-radius: 50% 50% 50% 50% / 60% 60% 50% 60%;
+            z-index: 4;
+            transform: rotate(-195deg);
+        }
+
+        #layer3 {
+            position: relative;
+            border: 0.6px solid #c94848;
+            top: 1px;
+            left: 8px;
+            height: 30px;
+            width: 50px;
+            background-color: #751d1d;
+            border-radius: 50% 50% 50% 50% / 60% 60% 50% 60%;
+            z-index: 4;
+            transform: rotate(-200deg);
+        }
+
+        #layer4 {
+            position: relative;
+            border: 0.6px solid #c94848;
+            top: 4px;
+            left: 10px;
+            height: 22px;
+            width: 31px;
+            background-color: hsl(0, 61%, 27%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 50% 60%;
+            z-index: 5;
+            transform: rotate(-230deg);
+        }
+
+        #textForPainting {
+            position: absolute;
+            top: 300px;
+            left: 340px;
+            font-size: 4em;
+            font-family: cursive;
+            font-style: italic;
+            z-index: 8;
+            color: #d88fce;
+            text-shadow: 0 0.4px 0 #cb86c2,
+                0 0.8px 0 #cb86c2,
+                0 1.2px 0 #cb86c2,
+                0 1.6px 0 #cb86c2,
+                0 2px 0 #cb86c2,
+                0 2.4px 0.4px rgba(0, 0, 0, .1),
+                0 0 2px rgba(0, 0, 0, .1),
+                0 0.4px 1.2px rgba(0, 0, 0, .3),
+                0 1.2px 2px rgba(0, 0, 0, .2),
+                0 2px 1.6px rgba(0, 0, 0, .25),
+                0 0.4px 0.4px rgba(0, 0, 0, .2),
+                0 0.8px 0.8px rgba(0, 0, 0, .15);
+        }
     </style>
 </head>
 
@@ -453,10 +633,6 @@
                 <h2 id="title1"></h2>
                 <h3 id="title2"></h3>
                 <h1 id="title3"></h1>
-                <!-- <h1 id="title0">Hi Emerald</h1>
-                <h2 id="title1">Nice seeing you here</h2>
-                <h3 id="title2">I created this little space here just for you and I</h3>
-                <h1 id="title3">Hope you would like it</h1> -->
                 <button id="circle0" onclick=goToHidden1Function()>
                     <div id="triangle0"></div>
                     <p id="hint"> ~ click to scroll down</p>
@@ -471,6 +647,158 @@
                     <div class="menuStyle"></div>
                     <div class="menuStyle"></div>
                     <div class="menuStyle"></div>
+                </div>
+                <div>
+                    <div id="forPainting">
+                        <div id="rose0">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                            <div id="stem">
+
+                            </div>
+                        </div>
+                        <div id="rose1">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                        </div>
+                        <div id="rose2">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                            <div id="stem">
+
+                            </div>
+                        </div>
+                        <div id="rose3">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                        </div>
+                        <div id="rose4">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                            <div id="stem">
+
+                            </div>
+                        </div>
+                        <div id="rose5">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                        </div>
+                        <div id="rose6">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                            <div id="stem">
+
+                            </div>
+                        </div>
+                        <div id="rose7">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                        </div>
+                        <div id="rose8">
+                            <div id="body">
+                                <div id="bodyTop">
+                                    <div id="layer1">
+                                        <div id="layer2">
+                                            <div id="layer3">
+                                                <div id="layer4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bodyLeft"></div>
+                                <div id="bodyRight"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 id="textForPainting">From buds to roses</h1>
                 </div>
                 <div id="display1">
                     <div class="menu">
