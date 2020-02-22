@@ -490,13 +490,13 @@
             left: 0px
         }
 
-        #body {
+        .body {
             position: relative;
             top: 20px;
             left: 200px
         }
 
-        #bodyLeft {
+        .bodyLeft {
             position: relative;
             top: 0px;
             left: 0px;
@@ -505,10 +505,10 @@
             background-color: #b33333;
             border-radius: 0 0 0 100% / 0 0 0 70%;
             z-index: 1;
-            background-image: linear-gradient(to left, #b33333, #8a2a2a);
+            background-image: linear-gradient(to left, #b33333 , #8a2a2a);
         }
 
-        #bodyRight {
+        .bodyRight {
             position: relative;
             top: -110px;
             left: 50px;
@@ -517,10 +517,10 @@
             background-color: #b33333;
             border-radius: 0 0 100% 0 / 0 0 70% 0;
             z-index: 1;
-            background-image: linear-gradient(to right, #b33333, #8a2a2a);
+            background-image: linear-gradient(to right, #b33333 , #8a2a2a);
         }
 
-        #bodyTop {
+        .bodyTop {
             position: relative;
             border: 1px solid #c94848;
             top: 20px;
@@ -532,7 +532,7 @@
             z-index: 2;
         }
 
-        #layer1 {
+        .layer1 {
             position: relative;
             border: 0.8px solid #c94848;
             top: -2px;
@@ -542,10 +542,10 @@
             background-color: #892525;
             border-radius: 50% 50% 50% 50% / 60% 60% 60% 40%;
             z-index: 3;
-            transform: skewX(10deg)
+            transform: skewX(10deg)        
         }
 
-        #layer2 {
+        .layer2 {
             position: relative;
             border: 0.6px solid #c94848;
             top: 9px;
@@ -558,7 +558,7 @@
             transform: rotate(-195deg);
         }
 
-        #layer3 {
+        .layer3 {
             position: relative;
             border: 0.6px solid #c94848;
             top: 1px;
@@ -571,7 +571,7 @@
             transform: rotate(-200deg);
         }
 
-        #layer4 {
+        .layer4 {
             position: relative;
             border: 0.6px solid #c94848;
             top: 4px;
@@ -582,6 +582,58 @@
             border-radius: 50% 50% 50% 50% / 60% 60% 50% 60%;
             z-index: 5;
             transform: rotate(-230deg);
+        }
+
+        #leftWrapper{
+            position: relative;
+            top: -2185px;
+            left: 34px;
+            background-color: #50C878;
+            width: 220px;
+            height: 80px;
+            transform: skewY(30deg);
+            border-radius:  0 0 20% 20%;
+            z-index: 7;
+            background-image: linear-gradient(to left, #50C878, #379a58);
+        }
+
+        #rightWrapper{
+            position: relative;
+            top: -2265px;
+            left: 246px;
+            background-color: #50C878;
+            width: 220px;
+            height: 80px;
+            transform: skewY(-30deg);
+            border-radius: 0 0 20% 20%;
+            z-index: 7;
+            background-image: linear-gradient(to right, #50C878, #379a58);
+        }
+
+        #topLeftWrapper{
+            position: relative;
+            top: -2480px;
+            left: 34px;
+            background-color: #50C878;
+            width: 160px;
+            height: 80px;
+            transform: skewY(-30deg);
+            border-radius: 20% 0 0 20%;
+            z-index: 0; 
+            background-image: linear-gradient(to right, #379a58, #267f44);     
+        }
+
+        #topRightWrapper{
+            position: relative;
+            top: -2560px;
+            left: 306px;
+            background-color: #50C878;
+            width: 160px;
+            height: 80px;
+            transform: skewY(30deg);
+            border-radius:  0 20% 20% 0;
+            z-index: 0;
+            background-image: linear-gradient(to left, #379a58, #267f44);     
         }
 
         #textForPainting {
@@ -612,7 +664,7 @@
 <body>
     <h3 id="secondsTogether"></h3>
 
-    <div id="inputBoxWrapper">
+    <div id="inputBoxWrapper" style="display: none;">
         <div id="inputBox">
             <h1>Input your name</h1>
             <p>(EnglishName + FamilyName: Bill Zhang)</p>
@@ -626,8 +678,8 @@
         </div>
     </div>
 
-    <div id="contents">
-        <div id="hidden0">
+    <div id="contents" style="display: block;">
+        <div id="hidden0" style="display: none;">
             <div id="titles">
                 <h1 id="title0"></h1>
                 <h2 id="title1"></h2>
@@ -639,7 +691,7 @@
                 </button>
             </div>
         </div>
-        <div id="hidden1">
+        <div id="hidden1" style="display: block;">
             <div id="poemSection"></div>
             <div id="starNight"></div>
             <div id="display0">
@@ -651,150 +703,158 @@
                 <div>
                     <div id="forPainting">
                         <div id="rose0">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
-                            </div>
-                            <div id="stem">
-
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose1">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose2">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
-                            <div id="stem">
-
+                            <div class="stem">
+                
                             </div>
                         </div>
                         <div id="rose3">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose4">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
-                            </div>
-                            <div id="stem">
-
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose5">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose6">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
-                            <div id="stem">
-
+                            <div class="stem">
+                
                             </div>
                         </div>
                         <div id="rose7">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
                             </div>
                         </div>
                         <div id="rose8">
-                            <div id="body">
-                                <div id="bodyTop">
-                                    <div id="layer1">
-                                        <div id="layer2">
-                                            <div id="layer3">
-                                                <div id="layer4"></div>
+                            <div class="body">
+                                <div class="bodyTop">
+                                    <div class="layer1">
+                                        <div class="layer2">
+                                            <div class="layer3">
+                                                <div class="layer4"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="bodyLeft"></div>
-                                <div id="bodyRight"></div>
+                                <div class="bodyLeft"></div>
+                                <div class="bodyRight"></div>
+                            </div>
+                        </div>
+                        <div id="roseWrapper">
+                            <div id="leftWrapper">
+                
+                            </div>
+                            <div id="rightWrapper">
+                
+                            </div>
+                            <div id="topLeftWrapper">
+
+                            </div>
+                            <div id="topRightWrapper">
+                
                             </div>
                         </div>
                     </div>
@@ -900,7 +960,7 @@
             makeStars(numOfStars)
             setTimeout(function () {
                 document.getElementById("hidden0").style.display = "none"
-                let poem0 = "Endless nights looking up at the countless stars of the nights \n May the streams of thy shine upon us through the silky clouds \n Everlasting thee stay there with the moon shining bright \n Roses here around us glimmer beyond all the fields and grounds \n . . . \n Arise its flagrant should flow to the far side of the heaven \n Lovely aren’t they in these early days of a romantic year \n Destiny trimmers on the horizon by the fear of being revealed \n In our hearts we both know we got nothing to fear \n . . . \n Solid oaths of forever are not the treasure we are seeking \n I simply know that I will love you more with each passing day \n Like the golden arrows with Cupid’s holly blessing \n Once gone off the string, only the himself is they to stay \n . . . \n Vested with all the love the world could give \n Emerald is the girl with me on this Valentine’s Day"
+                let poem0 = "Endless nights looking up at the countless stars of the nights \n May the streams of thy shine upon us through the silky clouds \n Everlasting thee stay there with the moon shining bright \n Roses here around us glimmer beyond all the fields and grounds \n . . . \n Arise its flagrant should flow to the far side of the heaven \n Lovely aren’t they in these early days of a romantic year \n Destiny trimmers on the horizon by the fear of being revealed \n In our hearts we both know we got nothing to fear \n . . . \n Solid oaths of forever are not the treasure we are seeking \n I simply know that I will love you more with each passing day \n Like the golden arrows with Cupid’s holly blessing \n Once gone off the string, only the himself is there to stay \n . . . \n Vested with all the love the world could give \n Emerald is the girl with me on this Valentine’s Day"
                 let poem0Array = poem0.split("\n")
                 console.log(poem0Array)
                 let line = poem0Array.length
