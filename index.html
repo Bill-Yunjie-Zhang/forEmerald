@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280px, initial-scale=1.0">
+    <meta name="viewport" content="width=1264, initial-scale=1.0">
     <title>Our Story</title>
     <style>
         html {
@@ -663,6 +663,7 @@
         #carousalSection {
             position: absolute;
             top: 100px;
+            left: 0px;
             width: 100%;
             height: 600px;
             background-color: transparent;
@@ -672,8 +673,9 @@
             position: absolute;
             width: 15%;
             height: 100%;
-            background-color: violet;
-            border: none
+            background-color: transparent;
+            border: none;
+            z-index: 4
         }
 
         #carousalRightButton {
@@ -681,8 +683,9 @@
             right: 0;
             width: 15%;
             height: 100%;
-            background-color: violet;
-            border: none
+            background-color: transparent;
+            border: none;
+            z-index: 4
         }
 
         .carousalArrow {
@@ -718,14 +721,43 @@
             top: 40%;
         }
 
-        #carousalFrame{
+        #carousalFrame {
             position: absolute;
-            left: 15%;
-            width: 70%;
-            height: 100%;
-            background-color: #a4ee82;
-            overflow-x: scroll;
+            left: 0px;
+            width: 100%;
+            height: 500px;
+            background-color: transparent;
+            overflow-x: hidden;
             overflow-y: hidden;
+        }
+
+        #carousalInnerFrame {
+            position: absolute;
+            left: 250px;
+            top: 0px;
+            height: 500px;
+            background-color: transparent;
+            transition: 0.5;
+        }
+
+        .carousalItem {
+            height: 400px;
+            width: 500px;
+            background-color: #6b6b6b;
+            float: left;
+            margin-top: 150px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+        .carousalItemTitle {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .carousalItemText {
+            text-align: center;
+            color: #dbdbdb;
         }
     </style>
 </head>
@@ -748,13 +780,13 @@
     </div>
 
     <div id="contents" style="display: block;">
-        <div id="hidden0" style="display: none;">
+        <div id="hidden0" style="display: block;">
             <div id="titles">
                 <h1 id="title0"></h1>
                 <h2 id="title1"></h2>
                 <h3 id="title2"></h3>
                 <h1 id="title3"></h1>
-                <button id="circle0" onclick=goToHidden1Function()>
+                <button id="circle0" onclick=goToHidden1Function() style="display: block;">
                     <div id="triangle0"></div>
                     <p id="hint"> ~ click to scroll down</p>
                 </button>
@@ -937,17 +969,19 @@
                     </div>
                     <h1 id="carousalTitle">To the memories we share!</h1>
                     <div id="carousalSection">
-                        <button id="carousalLeftButton">
+                        <button id="carousalLeftButton" onclick=carousalLeftButtonOnClick()>
                             <div class="carousalArrow carousalArrowPrevious"></div>
                         </button>
                         <div id="carousalFrame">
-                            <div style="height: 20px; width: 1800px; background-image: linear-gradient(to right, black, white);"></div>
+                            <div id="carousalInnerFrame">
+                                <div id="carousalItems"></div>
+                            </div>
                         </div>
-                        <button id="carousalRightButton">
+                        <button id="carousalRightButton" onclick=carousalRightButtonOnClick()>
                             <div class="carousalArrow carousalArrowNext"></div>
                         </button>
                     </div>
-                    <div id="display2" onmouseover="mouseOverDisplay2()" onmouseout="clearDisplay2()">
+                    <div id="display2" onmouseover="mouseOverDisplay2()">
                         <div class="menu">
                             <div class="menuStyle menuStyleColor2"></div>
                             <div class="menuStyle menuStyleColor2"></div>
@@ -1047,6 +1081,7 @@
             document.getElementById('hidden1').scrollIntoView()
             let numOfStars = 99
             makeStars(numOfStars)
+            settingUpForEvents()
             setTimeout(function () {
                 document.getElementById("hidden0").style.display = "none"
                 let poem0 = "Endless nights looking up at the countless stars of the nights \n May the streams of thy shine upon us through the silky clouds \n Everlasting thee stay there with the moon shining bright \n Roses here around us glimmer beyond all the fields and grounds \n . . . \n Arise its flagrant should flow to the far side of the heaven \n Lovely aren’t they in these early days of a romantic year \n Destiny trimmers on the horizon by the fear of being revealed \n In our hearts we both know we got nothing to fear \n . . . \n Solid oaths of forever are not the treasure we are seeking \n I simply know that I will love you more with each passing day \n Like the golden arrows with Cupid’s holly blessing \n Once gone off the string, only the himself is there to stay \n . . . \n Vested with all the love the world could give \n Emerald is the girl with me on this Valentine’s Day"
@@ -1176,6 +1211,84 @@
                     }, 5000)
                 }, 3000)
             }, 2000)
+        }
+
+
+        const events = [{
+            date: "02.08.2020",
+            event: "just checking1"
+        }, {
+            date: "02.08.2020",
+            event: "just checking2"
+        }, {
+            date: "02.08.2020",
+            event: "just checking3"
+        }]
+
+        const settingUpForEvents = () => {
+            document.getElementById("carousalInnerFrame").style.width = events.length * 800 + "px"
+            for (oo = 0; oo < events.length; oo++) {
+                document.getElementById("carousalItems").appendChild(document.createElement("div"))
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].setAttribute("class", "carousalItem")
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].appendChild(document.createElement("h1"))
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h1")[0].innerHTML = events[oo].date
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h1")[0].setAttribute("class", "carousalItemTitle")
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].appendChild(document.createElement("p"))
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("p")[0].innerHTML = events[oo].event
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("p")[0].setAttribute("class", "carousalItemText")
+            }
+        }
+
+        let counts = 0
+        let count = 250
+        const myScrollInToView = (position) => {
+            let id = setInterval(frame, 1);
+            function frame() {
+                if (count === position) {
+                    clearInterval(id);
+                } else {
+                    if(count < position) {
+                        count += 25
+                    } else if(count > position){
+                        count -= 25
+                    }
+                    document.getElementById("carousalInnerFrame").style.left = count + 'px';
+                }
+            }
+        }
+
+        const carousalRightButtonOnClick = () => {
+            if (counts < events.length) {
+                counts += 1
+                myScrollInToView(250 - 800*counts)
+            } else {
+                counts = counts
+            }
+            checkDisplay()
+        }
+
+        const carousalLeftButtonOnClick = () => {
+            if (counts > 0) {
+                counts -= 1
+                myScrollInToView(250 - 800*counts)
+            } else {
+                counts = counts
+            }
+            checkDisplay()
+        }
+
+        const checkDisplay = () => {
+            if (counts === 0) {
+                document.getElementById("carousalLeftButton").style.opacity = "0"
+            } else {
+                document.getElementById("carousalLeftButton").style.opacity = "1"
+            }
+
+            if (counts === events.length - 1) {
+                document.getElementById("carousalRightButton").style.opacity = "0"
+            } else {
+                document.getElementById("carousalRightButton").style.opacity = "1"
+            }
         }
     </script>
 </body>
