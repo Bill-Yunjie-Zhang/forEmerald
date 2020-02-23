@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story</title>
     <style>
-        button {
-            cursor: pointer;
-        }
-
         html {
             scroll-behavior: smooth;
         }
@@ -22,6 +18,40 @@
             margin: 0;
         }
 
+        button {
+            cursor: pointer;
+        }
+
+
+
+        /* --------------------- fixed seconds together --------------------- */
+        #secondsTogether {
+            position: fixed;
+            bottom: 3%;
+            right: 3%;
+            color: red;
+            z-index: 99;
+            opacity: 0;
+            direction: rtl;
+            filter: blur(0px);
+            animation: blur-text 4s 0s infinite linear alternate;
+        }
+
+        @keyframes blur-text {
+            0% {
+                filter: blur(0px);
+                opacity: 0.9;
+            }
+
+            100% {
+                filter: blur(4px);
+                opacity: 0.2;
+            }
+        }
+
+
+
+        /* --------------------- form section --------------------- */
         #inputBoxWrapper {
             padding: 10%
         }
@@ -50,6 +80,9 @@
             display: none
         }
 
+
+
+        /* --------------------- intro section --------------------- */
         #hidden0 {
             height: 800px;
             background-color: #ff6c6c;
@@ -65,6 +98,7 @@
             font-size: 50px;
         }
 
+        /* sroll to hidden1 button */
         #circle0 {
             background-color: #ffeeee;
             height: 50px;
@@ -100,6 +134,9 @@
             font-family: cursive
         }
 
+
+
+        /* --------------------- stary night peom section --------------------- */
         #hidden1 {
             height: 1000px;
             width: 100%;
@@ -120,6 +157,7 @@
             color: #8989a2;
         }
 
+        /* heart shaped stars */
         .heart {
             position: absolute;
             top: 20px;
@@ -169,49 +207,8 @@
             transform-origin: 100% 100%;
         }
 
+        /* trinkling effect */
         @keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-o-keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-moz-keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-webkit-keyframes flickerAnimation {
             0% {
                 opacity: 1;
             }
@@ -232,6 +229,9 @@
             animation: flickerAnimation 5s infinite;
         }
 
+
+
+        /* --------------------- setting up for displays --------------------- */
         #display0 {
             z-index: 1;
             position: absolute;
@@ -277,6 +277,7 @@
             height: 90%;
         }
 
+        /* menu bars on displays */
         .menu {
             padding-bottom: 15px;
             border-bottom: 0.5px dashed #ffffff;
@@ -301,6 +302,11 @@
             background-color: #b3b3b3;
         }
 
+
+
+        /* --------------------- display2 --------------------- */
+
+        /* clock section */
         #left {
             width: 40%;
             float: left;
@@ -315,30 +321,7 @@
             margin: auto;
         }
 
-        #secondsTogether {
-            position: fixed;
-            bottom: 3%;
-            right: 3%;
-            color: red;
-            z-index: 99;
-            opacity: 0;
-            direction: rtl;
-            filter: blur(0px);
-            animation: blur-text 4s 0s infinite linear alternate;
-        }
-
-        @keyframes blur-text {
-            0% {
-                filter: blur(0px);
-                opacity: 0.9;
-            }
-
-            100% {
-                filter: blur(4px);
-                opacity: 0.2;
-            }
-        }
-
+        /* words section */
         #rightTitle {
             font-family: cursive;
             position: relative;
@@ -427,6 +410,9 @@
             }
         }
 
+
+
+        /* --------------------- rose painting on display0 --------------------- */
         #forPainting {
             height: 500px;
             width: 500px;
@@ -434,7 +420,7 @@
             margin: auto;
         }
 
-
+        /* roses */
         #rose0 {
             position: relative;
             top: 50px;
@@ -490,6 +476,8 @@
             left: 0px
         }
 
+        /* painting roses */
+        /* painting body */
         .body {
             position: relative;
             top: 20px;
@@ -505,7 +493,7 @@
             background-color: #b33333;
             border-radius: 0 0 0 100% / 0 0 0 70%;
             z-index: 1;
-            background-image: linear-gradient(to left, #b33333 , #8a2a2a);
+            background-image: linear-gradient(to left, #b33333, #8a2a2a);
         }
 
         .bodyRight {
@@ -517,7 +505,7 @@
             background-color: #b33333;
             border-radius: 0 0 100% 0 / 0 0 70% 0;
             z-index: 1;
-            background-image: linear-gradient(to right, #b33333 , #8a2a2a);
+            background-image: linear-gradient(to right, #b33333, #8a2a2a);
         }
 
         .bodyTop {
@@ -532,6 +520,7 @@
             z-index: 2;
         }
 
+        /* paiting inside layers */
         .layer1 {
             position: relative;
             border: 0.8px solid #c94848;
@@ -542,7 +531,7 @@
             background-color: #892525;
             border-radius: 50% 50% 50% 50% / 60% 60% 60% 40%;
             z-index: 3;
-            transform: skewX(10deg)        
+            transform: skewX(10deg)
         }
 
         .layer2 {
@@ -584,7 +573,8 @@
             transform: rotate(-230deg);
         }
 
-        #leftWrapper{
+        /* painting wrapper */
+        #leftWrapper {
             position: relative;
             top: -2185px;
             left: 34px;
@@ -592,12 +582,12 @@
             width: 220px;
             height: 80px;
             transform: skewY(30deg);
-            border-radius:  0 0 20% 20%;
+            border-radius: 0 0 20% 20%;
             z-index: 7;
-            background-image: linear-gradient(to left, #50C878, #379a58);
+            background-image: linear-gradient(to left, #50C878, #1c6a36);
         }
 
-        #rightWrapper{
+        #rightWrapper {
             position: relative;
             top: -2265px;
             left: 246px;
@@ -607,10 +597,10 @@
             transform: skewY(-30deg);
             border-radius: 0 0 20% 20%;
             z-index: 7;
-            background-image: linear-gradient(to right, #50C878, #379a58);
+            background-image: linear-gradient(to right, #50C878, #1c6a36);
         }
 
-        #topLeftWrapper{
+        #topLeftWrapper {
             position: relative;
             top: -2480px;
             left: 34px;
@@ -619,11 +609,11 @@
             height: 80px;
             transform: skewY(-30deg);
             border-radius: 20% 0 0 20%;
-            z-index: 0; 
-            background-image: linear-gradient(to right, #379a58, #267f44);     
+            z-index: 0;
+            background-image: linear-gradient(to right, #1c6a36, #104f25);
         }
 
-        #topRightWrapper{
+        #topRightWrapper {
             position: relative;
             top: -2560px;
             left: 306px;
@@ -631,11 +621,12 @@
             width: 160px;
             height: 80px;
             transform: skewY(30deg);
-            border-radius:  0 20% 20% 0;
+            border-radius: 0 20% 20% 0;
             z-index: 0;
-            background-image: linear-gradient(to left, #379a58, #267f44);     
+            background-image: linear-gradient(to left, #1c6a36, #104f25);
         }
 
+        /* words for painting */
         #textForPainting {
             position: absolute;
             top: 300px;
@@ -700,7 +691,7 @@
                     <div class="menuStyle"></div>
                     <div class="menuStyle"></div>
                 </div>
-                <div>
+                <div id="rosePainting">
                     <div id="forPainting">
                         <div id="rose0">
                             <div class="body">
@@ -747,7 +738,7 @@
                                 <div class="bodyRight"></div>
                             </div>
                             <div class="stem">
-                
+
                             </div>
                         </div>
                         <div id="rose3">
@@ -810,7 +801,7 @@
                                 <div class="bodyRight"></div>
                             </div>
                             <div class="stem">
-                
+
                             </div>
                         </div>
                         <div id="rose7">
@@ -845,16 +836,16 @@
                         </div>
                         <div id="roseWrapper">
                             <div id="leftWrapper">
-                
+
                             </div>
                             <div id="rightWrapper">
-                
+
                             </div>
                             <div id="topLeftWrapper">
 
                             </div>
                             <div id="topRightWrapper">
-                
+
                             </div>
                         </div>
                     </div>
@@ -897,21 +888,6 @@
     </div>
 
     <script>
-        const makeStars = (num) => {
-            for (ll = 0; ll < num; ll++) {
-                document.getElementById("starNight").appendChild(document.createElement("div"))
-                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("id", "heart" + ll)
-                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("class", "heart trinkle")
-                // console.log(Math.random())
-                let locationX = Math.random() * 1000
-                let locationY = Math.random() * 1500
-                let speed = (Math.random() + 0.2) * 10
-                document.getElementById("heart" + ll).style.top = locationX + "px"
-                document.getElementById("heart" + ll).style.left = locationY + "px"
-                document.getElementById("heart" + ll).style.animation = "flickerAnimation " + speed + "s infinite"
-            }
-        }
-
         const handleNameFunction = () => {
             let name = ""
             let statement = ""
@@ -943,6 +919,14 @@
             }
         }
 
+        const setLines = (whereID, addWhatTag, addWhatId, addWhatClass, howMany) => {
+            for (ii = 0; ii < howMany; ii++) {
+                document.getElementById(whereID).appendChild(document.createElement(addWhatTag))
+                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("id", addWhatId + ii)
+                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("class", addWhatClass)
+            }
+        }
+
         const typeWriter = (txt, id, speed) => {
             setTimeout(function () {
                 document.getElementById(id).innerHTML += txt[0]
@@ -951,6 +935,21 @@
                     typeWriter(txt, id, speed)
                 }
             }, speed);
+        }
+
+        const makeStars = (num) => {
+            for (ll = 0; ll < num; ll++) {
+                document.getElementById("starNight").appendChild(document.createElement("div"))
+                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("id", "heart" + ll)
+                document.getElementById("starNight").getElementsByTagName("div")[ll].setAttribute("class", "heart trinkle")
+                // console.log(Math.random())
+                let locationX = Math.random() * 1000
+                let locationY = Math.random() * 1500
+                let speed = (Math.random() + 0.2) * 10
+                document.getElementById("heart" + ll).style.top = locationX + "px"
+                document.getElementById("heart" + ll).style.left = locationY + "px"
+                document.getElementById("heart" + ll).style.animation = "flickerAnimation " + speed + "s infinite"
+            }
         }
 
         const goToHidden1Function = () => {
@@ -962,7 +961,7 @@
                 document.getElementById("hidden0").style.display = "none"
                 let poem0 = "Endless nights looking up at the countless stars of the nights \n May the streams of thy shine upon us through the silky clouds \n Everlasting thee stay there with the moon shining bright \n Roses here around us glimmer beyond all the fields and grounds \n . . . \n Arise its flagrant should flow to the far side of the heaven \n Lovely aren’t they in these early days of a romantic year \n Destiny trimmers on the horizon by the fear of being revealed \n In our hearts we both know we got nothing to fear \n . . . \n Solid oaths of forever are not the treasure we are seeking \n I simply know that I will love you more with each passing day \n Like the golden arrows with Cupid’s holly blessing \n Once gone off the string, only the himself is there to stay \n . . . \n Vested with all the love the world could give \n Emerald is the girl with me on this Valentine’s Day"
                 let poem0Array = poem0.split("\n")
-                console.log(poem0Array)
+                // console.log(poem0Array)
                 let line = poem0Array.length
                 setLines("poemSection", "h3", "poem0Line", "poem0", line)
                 for (jj = 0; jj < line; jj++) {
@@ -971,14 +970,9 @@
             }, 1000)
         }
 
-        const setLines = (whereID, addWhatTag, addWhatId, addWhatClass, howMany) => {
-            for (ii = 0; ii < howMany; ii++) {
-                document.getElementById(whereID).appendChild(document.createElement(addWhatTag))
-                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("id", addWhatId + ii)
-                document.getElementById(whereID).getElementsByTagName(addWhatTag)[ii].setAttribute("class", addWhatClass)
-            }
-        }
 
+
+        // for drawing the clock
         const clearCanvas = () => {
             drawing.save()
             drawing.setTransform(1, 0, 0, 1, 0, 0)
@@ -1075,6 +1069,9 @@
 
         setInterval(getTimeTogether, 1000)
 
+
+
+        // for on hover starts on display2
         const mouseOverDisplay2 = () => {
             document.getElementById("rightTitle").setAttribute("class", "rightTitle")
             setTimeout(function () {
