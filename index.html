@@ -649,13 +649,91 @@
                 0 0.4px 0.4px rgba(0, 0, 0, .2),
                 0 0.8px 0.8px rgba(0, 0, 0, .15);
         }
+
+
+
+        /* for layer1 */
+        #carousalTitle {
+            text-align: center;
+            color: #ffffff;
+            font-family: cursive;
+            font-size: 50px;
+        }
+
+        #carousalSection {
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            height: 600px;
+            background-color: transparent;
+        }
+
+        #carousalLeftButton {
+            position: absolute;
+            width: 15%;
+            height: 100%;
+            background-color: violet;
+            border: none
+        }
+
+        #carousalRightButton {
+            position: absolute;
+            right: 0;
+            width: 15%;
+            height: 100%;
+            background-color: violet;
+            border: none
+        }
+
+        .carousalArrow {
+            position: absolute;
+            z-index: 4;
+            width: 48px;
+            height: 48px;
+            border-color: #ffffff;
+            top: 45%;
+            margin-top: -38px;
+            border-radius: 5px;
+            transition: all 0.5s
+        }
+
+        .carousalArrow.carousalArrowPrevious {
+            border-bottom: 4px solid #ffffff;
+            border-left: 4px solid #ffffff;
+            transform: rotate(45deg);
+            left: 50px
+        }
+
+        .carousalArrow.carousalArrowNext {
+            border-bottom: 4px solid #ffffff;
+            border-left: 4px solid #ffffff;
+            transform: rotate(-135deg);
+            right: 50px
+        }
+
+        .carousalArrow.carousalArrowNext:hover,
+        .carousalArrow.carousalArrowPrevious:hover {
+            border-bottom: 6px solid #ffffff;
+            border-left: 6px solid #ffffff;
+            top: 40%;
+        }
+
+        #carousalFrame{
+            position: absolute;
+            left: 15%;
+            width: 70%;
+            height: 100%;
+            background-color: #a4ee82;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
     </style>
 </head>
 
 <body>
     <h3 id="secondsTogether"></h3>
 
-    <div id="inputBoxWrapper">
+    <div id="inputBoxWrapper" style="display: none;">
         <div id="inputBox">
             <h1>Input your name</h1>
             <p>(EnglishName + FamilyName: Bill Zhang)</p>
@@ -669,8 +747,8 @@
         </div>
     </div>
 
-    <div id="contents">
-        <div id="hidden0">
+    <div id="contents" style="display: block;">
+        <div id="hidden0" style="display: none;">
             <div id="titles">
                 <h1 id="title0"></h1>
                 <h2 id="title1"></h2>
@@ -682,7 +760,7 @@
                 </button>
             </div>
         </div>
-        <div id="hidden1">
+        <div id="hidden1" style="display: block;">
             <div id="poemSection"></div>
             <div id="starNight"></div>
             <div id="display0">
@@ -856,6 +934,18 @@
                         <div class="menuStyle menuStyleColor1"></div>
                         <div class="menuStyle menuStyleColor1"></div>
                         <div class="menuStyle menuStyleColor1"></div>
+                    </div>
+                    <h1 id="carousalTitle">To the memories we share!</h1>
+                    <div id="carousalSection">
+                        <button id="carousalLeftButton">
+                            <div class="carousalArrow carousalArrowPrevious"></div>
+                        </button>
+                        <div id="carousalFrame">
+                            <div style="height: 20px; width: 1800px; background-image: linear-gradient(to right, black, white);"></div>
+                        </div>
+                        <button id="carousalRightButton">
+                            <div class="carousalArrow carousalArrowNext"></div>
+                        </button>
                     </div>
                     <div id="display2" onmouseover="mouseOverDisplay2()" onmouseout="clearDisplay2()">
                         <div class="menu">
