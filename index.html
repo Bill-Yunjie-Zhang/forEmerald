@@ -23,6 +23,15 @@
             outline: none;
         }
 
+        #skip {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 50px;
+            width: 50px;
+            background-color: transparent;
+            border: none;
+        }
 
 
         /* --------------------- fixed seconds together --------------------- */
@@ -156,6 +165,11 @@
             width: 50%;
             margin: auto;
             color: #8989a2;
+        }
+
+        #poemWritingDetail {
+            margin-top: 100px;
+            direction: rtl;
         }
 
         /* heart shaped stars */
@@ -775,9 +789,10 @@
     <h3 id="secondsTogether"></h3>
 
     <div id="inputBoxWrapper">
+        <button id="skip" onclick=handleSkipFunction()></button>
         <div id="inputBox">
-            <h1>Input your name</h1>
-            <p>(EnglishName + FamilyName: Bill Zhang)</p>
+            <h1>This a website for Emerald & Bill</h1>
+            <p>(Please enter her full name for a start)</p>
 
             <div id="inputInner">
                 <input id="name" value="">
@@ -1021,34 +1036,41 @@
     </div>
 
     <script>
+        console.log('Key for input "Emerald Chen"')
+
         const handleNameFunction = () => {
             let name = ""
             let statement = ""
             name = document.getElementById("name").value
-            statement = (name === "Emerald Chen") ? "Welcome " + name + "!" : "Sorry " + name + ", you are not yet in the system. " + "I will keep my master posted"
-            document.getElementById("demo").innerHTML = statement
             if (name === "Emerald Chen") {
+                document.getElementById("demo").style.color = "black"
+                statement = "Welcome! Thanks for being the witness for " + name + " and Bill Zhang!"
+                document.getElementById("demo").innerHTML = statement
                 setTimeout(function () {
                     let r = confirm("Scroll down to start please")
                     if (r) {
                         document.getElementById("contents").style.display = "block"
                         document.getElementById('hidden0').scrollIntoView()
-                        typeWriter("Hi Emerald", "title0", 100)
+                        typeWriter("Hi There", "title0", 100)
                         setTimeout(function () {
                             document.getElementById("inputBoxWrapper").style.display = "none"
                             typeWriter("Nice seeing you here", "title1", 50)
                             setTimeout(function () {
-                                typeWriter("I created this little space here just for you", "title2", 30)
+                                typeWriter("I created this little space here for some of my shared memories with Emerald", "title2", 30)
                                 setTimeout(function () {
-                                    typeWriter("Hope you would like it", "title3", 100)
+                                    typeWriter("Hope you would also like it", "title3", 100)
                                     setTimeout(function () {
                                         document.getElementById("circle0").style.display = "block"
                                     }, 3500)
-                                }, 2000)
+                                }, 2500)
                             }, 1000)
                         }, 1000)
                     }
                 }, 1000)
+            } else if (name !== "Emerald Chen") {
+                statement = "Access denied"
+                document.getElementById("demo").innerHTML = statement
+                document.getElementById("demo").style.color = "red"
             }
         }
 
@@ -1101,6 +1123,11 @@
                 for (jj = 0; jj < line; jj++) {
                     typeWriter(poem0Array[jj], "poem0Line" + jj, 100)
                 }
+                setTimeout(function () {
+                    document.getElementById("poemSection").appendChild(document.createElement("h5"))
+                    document.getElementById("poemSection").getElementsByTagName("h5")[0].setAttribute("id", "poemWritingDetail")
+                    typeWriter("wrote on Febrary 14th 2020 (our first Valentine's Day together) ~ ~ ~ ", "poemWritingDetail", 100)
+                }, 8000)
             }, 1000)
         }
 
@@ -1223,7 +1250,7 @@
         }
 
 
-        
+
         // our shared memory on display1
         const events = [{
             date: "01.19.2020",
@@ -1239,7 +1266,7 @@
             event: "First time of thinking about us"
         }, {
             date: "02.04.2020",
-            event: "First trick on a kid"
+            event: "Tricked a kid together"
         }, {
             date: "02.02.2020 ~ 02.06.2020",
             event: "Growing on you"
@@ -1331,6 +1358,12 @@
             } else {
                 document.getElementById("carousalRightButton").style.opacity = "1"
             }
+        }
+
+        const handleSkipFunction = () => {
+            document.getElementById("contents").style.display = "block"
+            document.getElementById("inputBoxWrapper").style.display = "none"
+            goToHidden1Function()
         }
     </script>
 </body>
