@@ -20,6 +20,7 @@
 
         button {
             cursor: pointer;
+            outline: none;
         }
 
 
@@ -652,7 +653,7 @@
 
 
 
-        /* for layer1 */
+        /* --------------------- carousal layer1 --------------------- */
         #carousalTitle {
             text-align: center;
             color: #ffffff;
@@ -662,7 +663,7 @@
 
         #carousalSection {
             position: absolute;
-            top: 100px;
+            top: 60px;
             left: 0px;
             width: 100%;
             height: 600px;
@@ -748,6 +749,12 @@
             margin-top: 150px;
             margin-left: 150px;
             margin-right: 150px;
+            border: 0px outset #999999;
+            transition: 1s;
+        }
+
+        .carousalItem:hover {
+            border: 8px outset #999999;
         }
 
         .carousalItemTitle {
@@ -756,8 +763,10 @@
         }
 
         .carousalItemText {
+            padding: 10%;
             text-align: center;
             color: #dbdbdb;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -780,7 +789,7 @@
     </div>
 
     <div id="contents">
-        <div id="hidden0" style="display: block;">
+        <div id="hidden0">
             <div id="titles">
                 <h1 id="title0"></h1>
                 <h2 id="title1"></h2>
@@ -1214,15 +1223,41 @@
         }
 
 
+        
+        // our shared memory on display1
         const events = [{
-            date: "02.08.2020",
-            event: "just checking1"
+            date: "01.26.2020",
+            event: "Meeting you for the first time"
+        }, {
+            date: "01.28.2020",
+            event: "Got your Wechat and QQ"
+        }, {
+            date: "02.01.2020",
+            event: "Starting to like you"
+        }, {
+            date: "02.02.2020",
+            event: "First time of thinking about us"
+        }, {
+            date: "02.02.2020 ~ 02.06.2020",
+            event: "Growing on you"
+        }, {
+            date: "02.06.2020",
+            event: "The Tarot Card night"
+        }, {
+            date: "02.07.2020",
+            event: "Thinking about us for a whole day"
         }, {
             date: "02.08.2020",
-            event: "just checking2"
+            event: "At 00:10 am you formally became my girlfriend"
         }, {
-            date: "02.08.2020",
-            event: "just checking3"
+            date: "02.10.2020",
+            event: "First time of playing and practicing playing the piano for you"
+        }, {
+            date: "02.18.2020",
+            event: "Start buidling this website for you"
+        }, {
+            date: "02.19.2020",
+            event: "First time of sharing a group chat with you"
         }]
 
         const settingUpForEvents = () => {
@@ -1233,10 +1268,11 @@
                 document.getElementById("carousalItems").getElementsByTagName("div")[oo].appendChild(document.createElement("h1"))
                 document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h1")[0].innerHTML = events[oo].date
                 document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h1")[0].setAttribute("class", "carousalItemTitle")
-                document.getElementById("carousalItems").getElementsByTagName("div")[oo].appendChild(document.createElement("p"))
-                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("p")[0].innerHTML = events[oo].event
-                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("p")[0].setAttribute("class", "carousalItemText")
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].appendChild(document.createElement("h2"))
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h2")[0].innerHTML = events[oo].event
+                document.getElementById("carousalItems").getElementsByTagName("div")[oo].getElementsByTagName("h2")[0].setAttribute("class", "carousalItemText")
             }
+            checkDisplay()
         }
 
         let counts = 0
@@ -1247,9 +1283,9 @@
                 if (count === position) {
                     clearInterval(id);
                 } else {
-                    if(count < position) {
+                    if (count < position) {
                         count += 25
-                    } else if(count > position){
+                    } else if (count > position) {
                         count -= 25
                     }
                     document.getElementById("carousalInnerFrame").style.left = count + 'px';
@@ -1260,7 +1296,7 @@
         const carousalRightButtonOnClick = () => {
             if (counts < events.length - 1) {
                 counts += 1
-                myScrollInToView(250 - 800*counts)
+                myScrollInToView(250 - 800 * counts)
             } else {
                 counts = counts
             }
@@ -1270,7 +1306,7 @@
         const carousalLeftButtonOnClick = () => {
             if (counts > 0) {
                 counts -= 1
-                myScrollInToView(250 - 800*counts)
+                myScrollInToView(250 - 800 * counts)
             } else {
                 counts = counts
             }
