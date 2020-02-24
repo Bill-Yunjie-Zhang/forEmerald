@@ -1226,17 +1226,20 @@
         
         // our shared memory on display1
         const events = [{
-            date: "01.26.2020",
+            date: "01.19.2020",
             event: "Meeting you for the first time"
         }, {
-            date: "01.28.2020",
-            event: "Got your Wechat and QQ"
+            date: "01.21.2020",
+            event: "Got your WechatQ"
         }, {
-            date: "02.01.2020",
-            event: "Starting to like you"
+            date: "01.22.2020",
+            event: "Got your QQ"
         }, {
             date: "02.02.2020",
             event: "First time of thinking about us"
+        }, {
+            date: "02.04.2020",
+            event: "First trick on a kid"
         }, {
             date: "02.02.2020 ~ 02.06.2020",
             event: "Growing on you"
@@ -1253,6 +1256,9 @@
             date: "02.10.2020",
             event: "First time of playing and practicing playing the piano for you"
         }, {
+            date: "02.14.2020",
+            event: "Our first Valentine's Day"
+        }, {
             date: "02.18.2020",
             event: "Start buidling this website for you"
         }, {
@@ -1261,7 +1267,7 @@
         }]
 
         const settingUpForEvents = () => {
-            document.getElementById("carousalInnerFrame").style.width = events.length * 800 + "px"
+            document.getElementById("carousalInnerFrame").style.width = events.length * 800 + 16 + "px"
             for (oo = 0; oo < events.length; oo++) {
                 document.getElementById("carousalItems").appendChild(document.createElement("div"))
                 document.getElementById("carousalItems").getElementsByTagName("div")[oo].setAttribute("class", "carousalItem")
